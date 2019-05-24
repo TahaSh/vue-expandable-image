@@ -121,7 +121,7 @@ body > .expandable-image.expanded > .close-button {
   filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
 }
 .expand-button svg path,
-.close-butto svg path {
+.close-button svg path {
   fill: #FFF;
 }
 .expand-button {
