@@ -1,5 +1,5 @@
 /**
- * vue-expandable-image v0.0.0
+ * vue-expandable-image v0.0.2
  * (c) 2019 Taha Shashtari
  * @license MIT
  */
@@ -234,7 +234,7 @@
     /* style */
     var __vue_inject_styles__ = function (inject) {
       if (!inject) { return }
-      inject("data-v-1373b560_0", { source: ".expandable-image{position:relative;transition:.25s opacity;cursor:zoom-in}body>.expandable-image.expanded{position:fixed;z-index:999999;top:0;left:0;width:100%;height:100%;background:#000;display:flex;align-items:center;opacity:0;padding-bottom:0!important;cursor:default}body>.expandable-image.expanded>img{width:100%;max-width:1200px;max-height:100%;object-fit:contain;margin:0 auto}body>.expandable-image.expanded>.close-button{display:block}.close-button{position:fixed;top:10px;right:10px;display:none;cursor:pointer}svg{filter:drop-shadow(1px 1px 1px rgba(0, 0, 0, .5))}svg path{fill:#fff}.expand-button{position:absolute;z-index:999;right:10px;top:10px;padding:0;align-items:center;justify-content:center;padding:3px;opacity:0;transition:.2s opacity}.expandable-image:hover .expand-button{opacity:1}.expand-button svg{width:20px;height:20px}.expand-button path{fill:#fff}.expandable-image img{width:100%}", map: undefined, media: undefined });
+      inject("data-v-e52e3416_0", { source: ".expandable-image{position:relative;transition:.25s opacity;cursor:zoom-in}body>.expandable-image.expanded{position:fixed;z-index:999999;top:0;left:0;width:100%;height:100%;background:#000;display:flex;align-items:center;opacity:0;padding-bottom:0!important;cursor:default}body>.expandable-image.expanded>img{width:100%;max-width:1200px;max-height:100%;object-fit:contain;margin:0 auto}body>.expandable-image.expanded>.close-button{display:block}.close-button{position:fixed;top:10px;right:10px;display:none;cursor:pointer}.close-button svg,.expand-button svg{filter:drop-shadow(1px 1px 1px rgba(0, 0, 0, .5))}.close-button svg path,.expand-button svg path{fill:#fff}.expand-button{position:absolute;z-index:999;right:10px;top:10px;padding:0;align-items:center;justify-content:center;padding:3px;opacity:0;transition:.2s opacity}.expandable-image:hover .expand-button{opacity:1}.expand-button svg{width:20px;height:20px}.expand-button path{fill:#fff}.expandable-image img{width:100%}", map: undefined, media: undefined });
 
     };
     /* scoped */
