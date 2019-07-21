@@ -1,6 +1,6 @@
 {
   "name": "vue-expandable-image",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/vue-expandable-image.js",
   "description": "A wrapper component for images to make them open in fullscreen.",
   "license": "MIT",
