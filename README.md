@@ -41,6 +41,20 @@ You can check this [CodePen](https://codepen.io/tahazsh/pen/aMbooL) to see how i
 
 Just replace your `<img>` tag with `<expandable-image/>`, and it should work!
 
+## The image doesn't load for you?
+
+If you see your image is broken even though it works on `<img/>`, it means you're passing a relative path (like `../assets/image.jpg`) but not loading it through Webpack. [Check out this for more details](https://cli.vuejs.org/guide/html-and-static-assets.html#relative-path-imports).
+
+To fix this issue, you have to load the image explicitly through Webpack before passing it to `src`. And you can do this using `require(imagePath)`.
+
+Example:
+
+``` html
+<expandable-image
+  :src="require('../assets/image.jpg')"
+/>
+```
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)

@@ -2,7 +2,7 @@
   <div id="app">
     <expandable-image
       class="image"
-      src="https://images.unsplash.com/photo-1550948537-130a1ce83314?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80"
+      :src="require('./test.jpg')"
       alt="dog"
       title="dog"
     />
