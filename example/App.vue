@@ -5,6 +5,7 @@
       :src="require('./test.jpg')"
       alt="dog"
       title="dog"
+      :close-on-background-click="true"
     />
     <expandable-image
       class="image"

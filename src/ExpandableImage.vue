@@ -28,6 +28,13 @@
 
 <script>
 export default {
+  props: {
+    closeOnBackgroundClick: {
+      type: Boolean,
+      default: false
+    }
+  },
+
   data () {
     return {
       expanded: false,
@@ -40,8 +47,40 @@ export default {
       this.expanded = false
       event.stopPropagation()
     },
+
     freezeVp (e) {
       e.preventDefault()
+    },
+
+    onExpandedImageClick (e) {
+      e.stopPropagation()
+      const image = this.cloned.querySelector('img')
+      const imagePosition = this.getRenderedSize(image.width, image.height, image.naturalWidth, image.naturalHeight)
+      if (
+        (e.clientX < imagePosition.left) ||
+        (e.clientX > imagePosition.right) ||
+        (e.clientY < imagePosition.top) ||
+        (e.clientY > imagePosition.bottom)
+      ) {
+        this.expanded = false
+      }
+    },
+
+    getRenderedSize (cWidth, cHeight, oWidth, oHeight) {
+      const oRatio = oWidth > oHeight
+        ? oWidth / oHeight
+        : oHeight / oWidth
+      const width = oWidth >= oHeight
+        ? oRatio * cHeight
+        : cWidth
+      const height = oHeight > oWidth
+        ? oRatio * cWidth
+        : cHeight
+      const left = (this.cloned.clientWidth - width) / 2
+      const right = left + width
+      const top = (this.cloned.clientHeight - height) / 2
+      const bottom = top + height
+      return { left, top, right, bottom }
     }
   },
 
@@ -55,12 +94,18 @@ export default {
           document.body.appendChild(this.cloned)
           document.body.style.overflow = 'hidden'
           this.cloned.addEventListener('touchmove', this.freezeVp, false);
+          if (this.closeOnBackgroundClick) {
+            this.cloned.addEventListener('click', this.onExpandedImageClick)
+          }
           setTimeout(() => {
             this.cloned.style.opacity = 1
           }, 0)
         } else {
           this.cloned.style.opacity = 0
           this.cloned.removeEventListener('touchmove', this.freezeVp, false);
+          if (this.closeOnBackgroundClick) {
+            this.cloned.removeEventListener('click', this.onExpandedImageClick)
+          }
           setTimeout(() => {
             this.closeButtonRef.removeEventListener('click', this.closeImage)
             this.cloned.remove()

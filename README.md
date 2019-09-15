@@ -55,6 +55,12 @@ Example:
 />
 ```
 
+## Props
+
+| Prop                      | Default | Description                                 |
+| ------------------------- | ------- | ------------------------------------------- |
+| close-on-background-click | `false` | Clicking on the background closes the image |
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
