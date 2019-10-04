@@ -157,7 +157,7 @@ body > .expandable-image.expanded {
 }
 
 body > .expandable-image.expanded > img {
-  width: 100%;
+  width: auto;
   max-width: 1200px;
   max-height: 100%;
   object-fit: contain;
