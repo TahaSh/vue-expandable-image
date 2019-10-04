@@ -32,7 +32,12 @@ export default {
     closeOnBackgroundClick: {
       type: Boolean,
       default: false
+    },
+    closeOnEscapeKeyPressed: {
+        type: Boolean,
+        default: false
     }
+    
   },
 
   data () {
@@ -65,7 +70,11 @@ export default {
         this.expanded = false
       }
     },
-
+    onExpandedImageEscapeKeyPressed (e) {
+        e.stopPropagation()
+        if (e.key === 'Escape')
+            this.expanded = false
+    },
     getRenderedSize (cWidth, cHeight, oWidth, oHeight) {
       const oRatio = oWidth > oHeight
         ? oWidth / oHeight
@@ -97,6 +106,9 @@ export default {
           if (this.closeOnBackgroundClick) {
             this.cloned.addEventListener('click', this.onExpandedImageClick)
           }
+          if (this.closeOnEscapeKeyPressed) {
+            window.addEventListener('keydown', this.onExpandedImageEscapeKeyPressed)
+          }
           setTimeout(() => {
             this.cloned.style.opacity = 1
           }, 0)
@@ -105,6 +117,9 @@ export default {
           this.cloned.removeEventListener('touchmove', this.freezeVp, false);
           if (this.closeOnBackgroundClick) {
             this.cloned.removeEventListener('click', this.onExpandedImageClick)
+          }
+          if (this.closeOnEscapeKeyPressed) {
+            window.removeEventListener('keydown', this.onExpandedImageEscapeKeyPressed)
           }
           setTimeout(() => {
             this.closeButtonRef.removeEventListener('click', this.closeImage)
