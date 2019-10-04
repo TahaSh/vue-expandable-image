@@ -33,7 +33,7 @@ export default {
       type: Boolean,
       default: false
     },
-    closeOnEscapeKeyPressed: {
+    closeOnEscapeKeyPress: {
         type: Boolean,
         default: false
     }
@@ -69,7 +69,7 @@ export default {
         this.expanded = false
       }
     },
-    onExpandedImageEscapeKeyPressed (e) {
+    onExpandedImageEscapeKeyPress (e) {
         e.stopPropagation()
         if (e.key === 'Escape')
             this.expanded = false
@@ -105,8 +105,8 @@ export default {
           if (this.closeOnBackgroundClick) {
             this.cloned.addEventListener('click', this.onExpandedImageClick)
           }
-          if (this.closeOnEscapeKeyPressed) {
-            window.addEventListener('keydown', this.onExpandedImageEscapeKeyPressed)
+          if (this.closeOnEscapeKeyPress) {
+            window.addEventListener('keydown', this.onExpandedImageEscapeKeyPress)
           }
           setTimeout(() => {
             this.cloned.style.opacity = 1
@@ -117,8 +117,8 @@ export default {
           if (this.closeOnBackgroundClick) {
             this.cloned.removeEventListener('click', this.onExpandedImageClick)
           }
-          if (this.closeOnEscapeKeyPressed) {
-            window.removeEventListener('keydown', this.onExpandedImageEscapeKeyPressed)
+          if (this.closeOnEscapeKeyPress) {
+            window.removeEventListener('keydown', this.onExpandedImageEscapeKeyPress)
           }
           setTimeout(() => {
             this.closeButtonRef.removeEventListener('click', this.closeImage)
