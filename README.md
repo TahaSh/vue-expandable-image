@@ -60,6 +60,7 @@ Example:
 | Prop                      | Default | Description                                 |
 | ------------------------- | ------- | ------------------------------------------- |
 | close-on-background-click | `false` | Clicking on the background closes the image |
+| close-on-escape-key-press | `false` | Pressing the escape key closes the image    |
 
 ## License
 
