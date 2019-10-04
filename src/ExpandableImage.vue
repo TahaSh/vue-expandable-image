@@ -32,6 +32,10 @@ export default {
     closeOnBackgroundClick: {
       type: Boolean,
       default: false
+    },
+    closeOnEscapeKeyPress: {
+        type: Boolean,
+        default: false
     }
   },
 
@@ -65,7 +69,11 @@ export default {
         this.expanded = false
       }
     },
-
+    onExpandedImageEscapeKeyPress (e) {
+        e.stopPropagation()
+        if (e.key === 'Escape')
+            this.expanded = false
+    },
     getRenderedSize (cWidth, cHeight, oWidth, oHeight) {
       const oRatio = oWidth > oHeight
         ? oWidth / oHeight
@@ -97,6 +105,9 @@ export default {
           if (this.closeOnBackgroundClick) {
             this.cloned.addEventListener('click', this.onExpandedImageClick)
           }
+          if (this.closeOnEscapeKeyPress) {
+            window.addEventListener('keydown', this.onExpandedImageEscapeKeyPress)
+          }
           setTimeout(() => {
             this.cloned.style.opacity = 1
           }, 0)
@@ -105,6 +116,9 @@ export default {
           this.cloned.removeEventListener('touchmove', this.freezeVp, false);
           if (this.closeOnBackgroundClick) {
             this.cloned.removeEventListener('click', this.onExpandedImageClick)
+          }
+          if (this.closeOnEscapeKeyPress) {
+            window.removeEventListener('keydown', this.onExpandedImageEscapeKeyPress)
           }
           setTimeout(() => {
             this.closeButtonRef.removeEventListener('click', this.closeImage)
@@ -143,7 +157,7 @@ body > .expandable-image.expanded {
 }
 
 body > .expandable-image.expanded > img {
-  width: 100%;
+  width: auto;
   max-width: 1200px;
   max-height: 100%;
   object-fit: contain;
